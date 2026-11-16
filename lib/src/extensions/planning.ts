@@ -1,8 +1,8 @@
 import { Type } from 'typebox';
 import { join } from 'node:path';
-import type { Runtime } from 'pi-code-core/runtime/runtime';
-import { canonical, hash, optionalText, textResult } from 'pi-code-core/runtime/utils';
-import { object } from 'pi-code-core/runtime/schema';
+import type { Runtime } from '@kabaevroman/pi-code-core/runtime/runtime';
+import { canonical, hash, optionalText, textResult } from '@kabaevroman/pi-code-core/runtime/utils';
+import { object } from '@kabaevroman/pi-code-core/runtime/schema';
 export function registerPlanning(runtime: Runtime): void {
   runtime.register(object({}), 'EnterPlanMode', 'Enter read-only planning. Shell/unknown tools are blocked. Only the designated plan file may be edited. ExitPlanMode requires explicit UI approval of its content hash.', true, async () => {
     if (runtime.state.mode !== 'plan') {

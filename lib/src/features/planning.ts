@@ -1,7 +1,7 @@
 import type { ExtensionAPI } from '@earendil-works/pi-coding-agent';
-import { acquire } from 'pi-code-core';
+import { acquire } from '@kabaevroman/pi-code-core';
 import { registerPlanning } from '../extensions/planning.ts';
-import { canonical } from 'pi-code-core/runtime/utils';
+import { canonical } from '@kabaevroman/pi-code-core/runtime/utils';
 export default function (pi: ExtensionAPI): void {
   const state = acquire(pi,'planning'); if (!state) return;
   const {runtime:r,features} = state;
