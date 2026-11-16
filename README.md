@@ -1,6 +1,6 @@
 # @kabaevroman/pi-code-planning
 
-Independently installable pi extension: planning. Former package name: `pi-claude-planning`.
+Independently installable pi extension: planning.
 
 This extension depends on `@kabaevroman/pi-code-core@0.5.0`; it does not require any other extension.
 
