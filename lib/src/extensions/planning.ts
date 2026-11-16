@@ -32,10 +32,10 @@ export function registerPlanning(runtime: Runtime): void {
     const answers: Record<string,string> = {};
     for (const question of input.questions) {
       const other = '[Enter a custom answer]';
-      const selected = await ctx.ui.select(question.question, [...question.options.map((o: any) => `${o.label}: ${o.description}`), other], { timeout: 60_000, signal });
-      if (!selected) throw new Error('Question cancelled or timed out');
-      const answer = selected === other ? await ctx.ui.input(question.question, '', { timeout: 60_000, signal }) : selected;
-      if (answer === undefined) throw new Error('Question cancelled or timed out');
+      const selected = await ctx.ui.select(question.question, [...question.options.map((o: any) => `${o.label}: ${o.description}`), other], { signal });
+      if (!selected) throw new Error('Question cancelled');
+      const answer = selected === other ? await ctx.ui.input(question.question, '', { signal }) : selected;
+      if (answer === undefined) throw new Error('Question cancelled');
       answers[question.question] = answer;
     }
     return textResult(humanReadable({ answers }), { answers });
